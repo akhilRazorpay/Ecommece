@@ -19,9 +19,10 @@
             <td>Id</td>
             <td>Name</td>
             <td>Photo</td>
+            <td >Description</td> 
             <td>Price</td>
             <td>Quantity</td>
-           <td >Description</td> 
+          
             <td>Total</td>
         </tr>
    
@@ -34,7 +35,7 @@
         </td>
         <td>{{.Product.Image}}</td>
         <td>{{.Product.Price}}</td>
-        <td>{{.Product.Quantity}}</td>
+        <td>{{.Quantity}}</td>
        
 
         <td>{{total .}}</td>
@@ -42,6 +43,11 @@
     </tr>
 
     {{end}}
+    <tr>
+       <td colspan="4"> TOTAL AMOUNT
+    </td>
+    <td colspan="3"> {{.total}}</td>
+    </tr>
 </table>
 
 <a href="/product">continue shopping </a>
