@@ -1,4 +1,4 @@
-package productController
+package controllers
 
 import (
 	"ecommece/models"
@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func Index(response http.ResponseWriter, request *http.Request) {
+func ProductIndex(response http.ResponseWriter, request *http.Request) {
 	// fmt.Println("ok")
 	var productModel models.ProductModel
 	products, _ := productModel.FindAll()

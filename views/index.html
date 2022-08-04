@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 
-<body>
+<body style="text-align: center;">
     Product
 
-    <h3>Product List</h3>
-    <table border="4">
+    <h3 >Product List</h3>
+    <table border="4" style="margin: 0px auto;width: 80%">
         <tr>
 
             <td>Id</td>
@@ -32,11 +32,14 @@
         <td>{{.Name}}</td>
         <td> <img height="120px" width="120px" src="{{.Description}}" alt="Image" />
         </td>
+        <td>{{.Image}}</td>
         <td>{{.Price}}</td>
         <td>{{.Quantity}}</td>
-        <td>{{.Image}}</td>
+        
 
-        <td>buy</td>
+        <td>
+            <a href="cart/buy?id={{.Id}}">buy</a>
+            </td>
 
     </tr>
 

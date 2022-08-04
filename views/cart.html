@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 
-<body>
+<body style="text-align: center;">
     Product
 
     <h3>Cart List</h3>
-    <table border="4">
+    <table border="4" style="margin: 0px auto;width: 80%;">
         <tr>
 
             <td>Id</td>
@@ -22,26 +22,29 @@
             <td>Price</td>
             <td>Quantity</td>
            <td >Description</td> 
-            <td>Action</td>
+            <td>Total</td>
         </tr>
    
 
-    {{range .products}}
+    {{range .cart}}
     <tr>
-        <td>{{.Id}}</td>
-        <td>{{.Name}}</td>
-        <td> <img height="120px" width="120px" src="{{.Description}}" alt="Image" />
+        <td>{{.Product.Id}}</td>
+        <td>{{.Product.Name}}</td>
+        <td> <img height="120px" width="120px" src="{{.Product.Description}}" alt="Image" />
         </td>
-        <td>{{.Price}}</td>
-        <td>{{.Quantity}}</td>
-        <td>{{.Image}}</td>
+        <td>{{.Product.Image}}</td>
+        <td>{{.Product.Price}}</td>
+        <td>{{.Product.Quantity}}</td>
+       
 
-        <td>buy</td>
+        <td>{{total .}}</td>
 
     </tr>
 
     {{end}}
 </table>
+
+<a href="/product">continue shopping </a>
 </body>
 
 </html>
