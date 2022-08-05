@@ -22,7 +22,9 @@
             <td>Price</td>
             <td>Quantity</td>
            <td >Description</td> 
-            <td>Action</td>
+            <td>Action1</td>
+            <td>Action2</td>
+
         </tr>
    
 
@@ -39,11 +41,18 @@
 
         <td>
             <a href="cart/buy?id={{.Id}}">buy</a>
+
             </td>
 
+            <td>
+                <a href="products/delete?id={{.Id}}">Delete</a>
+                
+                </td>
     </tr>
 
     {{end}}
+
+    <a href="products/insert">insert Products</a>
 </table>
 </body>
 
