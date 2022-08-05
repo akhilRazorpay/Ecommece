@@ -15,8 +15,8 @@
     <h3>Cart List</h3>
     <table border="4" style="margin: 0px auto;width: 80%;">
         <tr>
-
-            <td>Id</td>
+            <td>Action</td>
+            <!-- <td>Id</td> -->
             <td>Name</td>
             <td>Photo</td>
             <td >Description</td> 
@@ -29,7 +29,8 @@
 
     {{range .cart}}
     <tr>
-        <td>{{.Product.Id}}</td>
+        <td><a href="/cart/remove?id={{.Product.Id}}">Remove  </a></td>
+        <!-- <td>{{.Product.Id}}</td> -->
         <td>{{.Product.Name}}</td>
         <td> <img height="120px" width="120px" src="{{.Product.Description}}" alt="Image" />
         </td>

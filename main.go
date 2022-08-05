@@ -14,5 +14,7 @@ func main() {
 	http.HandleFunc("/cart", controllers.CartIndex)
 	http.HandleFunc("/cart/index", controllers.CartIndex)
 	http.HandleFunc("/cart/buy", controllers.Buy)
+	http.HandleFunc("/cart/remove", controllers.Remove)
+
 	http.ListenAndServe(":3000", nil)
 }

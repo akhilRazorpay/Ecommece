@@ -4,7 +4,7 @@ CREATE TABLE `product` (
 	`name` varchar(250) NOT NULL,
 	`price` int(11) NOT NULL,
 	`quantity` int(11) NOT NULL,
-	`image` VARCHAR(250) NOT NULL
+	`image` VARCHAR(250) NOT NULL,
 	`description` VARCHAR(300) NOT NULL
   ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

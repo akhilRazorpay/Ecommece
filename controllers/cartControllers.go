@@ -40,6 +40,8 @@ func Buy(response http.ResponseWriter, request *http.Request) {
 
 	product, _ := productModel.Find(id)
 
+	// fmt.Println(product)
+
 	session, _ := store.Get(request, "mysession")
 	cart := session.Values["cart"]
 	if cart == nil {
@@ -72,6 +74,26 @@ func Buy(response http.ResponseWriter, request *http.Request) {
 	http.Redirect(response, request, "/cart", http.StatusSeeOther)
 }
 
+func Remove(response http.ResponseWriter, request *http.Request) {
+	query := request.URL.Query()
+	id, _ := strconv.ParseInt(query.Get("id"), 10, 64)
+
+	session, _ := store.Get(request, "mysession")
+	strCart := session.Values["cart"].(string)
+
+	var cart []entities.Item
+	json.Unmarshal([]byte(strCart), &cart)
+
+	index := exists(id, cart)
+	cart = remove(cart, index)
+
+	bytesCart, _ := json.Marshal(cart)
+
+	session.Values["cart"] = string(bytesCart)
+	session.Save(request, response)
+
+	http.Redirect(response, request, "/cart", http.StatusSeeOther)
+}
 func exists(id int64, cart []entities.Item) int {
 	fmt.Println(cart, id)
 	for i := 0; i < len(cart); i++ {
@@ -92,4 +114,9 @@ func total(cart []entities.Item) float64 {
 	}
 	// fmt.Println(s)
 	return s
+}
+func remove(cart []entities.Item, index int) []entities.Item {
+
+	cart = append(cart[:index], cart[index+1:]...)
+	return cart
 }
