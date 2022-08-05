@@ -93,6 +93,7 @@ func Remove(response http.ResponseWriter, request *http.Request) {
 
 	http.Redirect(response, request, "/cart", http.StatusSeeOther)
 }
+
 func exists(id int64, cart []entities.Item) int {
 	// fmt.Println(cart, id)
 	for i := 0; i < len(cart); i++ {
@@ -114,6 +115,7 @@ func total(cart []entities.Item) float64 {
 	// fmt.Println(s)
 	return s
 }
+
 func remove(cart []entities.Item, index int) []entities.Item {
 
 	cart = append(cart[:index], cart[index+1:]...)

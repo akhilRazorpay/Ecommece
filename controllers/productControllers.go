@@ -3,7 +3,6 @@ package controllers
 import (
 	"ecommece/database"
 	"ecommece/models"
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -16,7 +15,7 @@ func ProductIndex(response http.ResponseWriter, request *http.Request) {
 	data := map[string]interface{}{
 		"products": products,
 	}
-
+	// fmt.Println(data)
 	tmp, _ := template.ParseFiles("views/index.html")
 	tmp.Execute(response, data)
 }
@@ -34,7 +33,6 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 		panic(err.Error())
 	}
 	delForm.Exec(product)
-	// log.Println("DELETE")
 	defer db.Close()
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
@@ -45,7 +43,7 @@ func Insert(response http.ResponseWriter, request *http.Request) {
 }
 
 func Inserted(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("ok")
+	// fmt.Println("ok")
 	db, err := database.GetDB()
 	if err != nil {
 		return
@@ -57,19 +55,17 @@ func Inserted(w http.ResponseWriter, r *http.Request) {
 		quantity := r.FormValue("quantity")
 		image := r.FormValue("image")
 		description := r.FormValue("description")
-		fmt.Println(name, price, quantity, image, description)
-		// fmt.Println(name, city)
-		// insForm, err := db.Prepare("INSERT INTO product(name, city) VALUES(?,?)")
+		// fmt.Println(name, price, quantity, image, description)
 		insForm, err := db.Prepare("INSERT INTO product (name, price, quantity, image, description) VALUES(?,?,?,?,?)")
 
 		if err != nil {
 			panic(err.Error())
 		}
-		fmt.Println("oks1")
+		// fmt.Println("oks1")
 		insForm.Exec(name, price, quantity, image, description)
-		fmt.Println("oks2")
+		// fmt.Println("oks2")
 	}
-	fmt.Println("oks")
+	// fmt.Println("oks")
 	defer db.Close()
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
