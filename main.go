@@ -12,6 +12,9 @@ func main() {
 	http.HandleFunc("/products/index", controllers.ProductIndex)
 	http.HandleFunc("/products/delete", controllers.Delete)
 
+	http.HandleFunc("/products/insert", controllers.Insert)
+	http.HandleFunc("/products/inserted", controllers.Inserted)
+
 	http.HandleFunc("/cart", controllers.CartIndex)
 	http.HandleFunc("/cart/index", controllers.CartIndex)
 	http.HandleFunc("/cart/buy", controllers.Buy)

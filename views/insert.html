@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <form method="POST" action="inserted">
-        <label> Name </label><input type="text" name="name" /><br />
-        <label> Price </label><input type="text" name="price" /><br />
-        <label> Quantity </label><input type="text" name="quantity" /><br />
-        <label> Image </label><input type="text" name="image" /><br />
-        <label> Description </label><input type="text" name="description" /><br />
-        <input type="submit" value="Save user" />
+<body style="text-align: center; padding-top: 50px;">
+   <h1><b> Inserting Product</b></h1>
+    <form method="POST" action="inserted" style="margin: 0px auto;width: 80%;border: 1px solid black;">
+        <label> Name </label><br /><input type="text" name="name" required /><br />
+        <label> Price </label><br /><input type="number" name="price" required /><br />
+        <label> Quantity </label><br /><input type="number" name="quantity" required/><br />
+        <label> Image </label><br /><input type="text" name="image" required/><br />
+        <label> Description </label><br /><input type="text" name="description" required/><br />
+        <input type="submit" value="Save Product" style="margin-top:30px ;margin-bottom: 20px;" />
       </form>
 </body>
 </html>

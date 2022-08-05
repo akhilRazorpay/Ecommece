@@ -4,7 +4,6 @@ import (
 	"ecommece/entities"
 	"ecommece/models"
 	"encoding/json"
-	"fmt"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -56,7 +55,7 @@ func Buy(response http.ResponseWriter, request *http.Request) {
 		strCart := session.Values["cart"].(string)
 		var cart []entities.Item
 		json.Unmarshal([]byte(strCart), &cart)
-		fmt.Println(cart)
+		// fmt.Println(cart)
 		index := exists(id, cart)
 		if index == -1 {
 			cart = append(cart, entities.Item{
@@ -95,7 +94,7 @@ func Remove(response http.ResponseWriter, request *http.Request) {
 	http.Redirect(response, request, "/cart", http.StatusSeeOther)
 }
 func exists(id int64, cart []entities.Item) int {
-	fmt.Println(cart, id)
+	// fmt.Println(cart, id)
 	for i := 0; i < len(cart); i++ {
 		if cart[i].Product.Id == id {
 			return i
