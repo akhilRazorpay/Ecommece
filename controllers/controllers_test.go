@@ -28,9 +28,7 @@ func TestExists(t *testing.T) {
 			{Product: entities.Product{Id: 4, Name: "Laptop 2", Price: 54100, Quantity: 6, Description: "https://cdn.thewirecutter.com/wp-content/uploads/2020/04/laptops-lowres-2x1-.jpg?auto=webp&quality=75&crop=2:1&width=1024", Image: "LAPTOP2 DESCRIPTION"}, Quantity: 3},
 			{Product: entities.Product{Id: 7, Name: "Mobile 2", Price: 21000, Quantity: 25, Description: "https://img.tatacliq.com/images/i8/437Wx649H/MP000000013198982_437Wx649H_202205211422291.jpeg", Image: "Mobile2 DESCRIPTION"}, Quantity: 1},
 			{Product: entities.Product{Id: 3, Name: "Laptop 1", Price: 50000, Quantity: 11, Description: "https://m.media-amazon.com/images/I/718ETwvLVOL._SL1500_.jpg", Image: "LAPTOP1 DESCRIPTION"}, Quantity: 1}}}, // {1, 0, 0},
-		// {2, -2, -2},
-		// {0, -1, -1},
-		// {-1, 0, -1},
+
 	}
 
 	for _, tt := range tests {
@@ -62,9 +60,6 @@ func TestTotal(t *testing.T) {
 			{Product: entities.Product{Id: 7, Name: "Mobile 2", Price: 21000, Quantity: 25, Description: "https://img.tatacliq.com/images/i8/437Wx649H/MP000000013198982_437Wx649H_202205211422291.jpeg", Image: "Mobile2 DESCRIPTION"}, Quantity: 1},
 			{Product: entities.Product{Id: 3, Name: "Laptop 1", Price: 50000, Quantity: 11, Description: "https://m.media-amazon.com/images/I/718ETwvLVOL._SL1500_.jpg", Image: "LAPTOP1 DESCRIPTION"}, Quantity: 1}}}, // {1, 0, 0},
 		{0, []entities.Item{}},
-		// {2, -2, -2},
-		// {0, -1, -1},
-		// {-1, 0, -1},
 	}
 
 	for _, tt := range tests {
@@ -109,10 +104,6 @@ func TestRemove(t *testing.T) {
 				{Product: entities.Product{Id: 4, Name: "Laptop 2", Price: 54100, Quantity: 6, Description: "https://cdn.thewirecutter.com/wp-content/uploads/2020/04/laptops-lowres-2x1-.jpg?auto=webp&quality=75&crop=2:1&width=1024", Image: "LAPTOP2 DESCRIPTION"}, Quantity: 3},
 				{Product: entities.Product{Id: 7, Name: "Mobile 2", Price: 21000, Quantity: 25, Description: "https://img.tatacliq.com/images/i8/437Wx649H/MP000000013198982_437Wx649H_202205211422291.jpeg", Image: "Mobile2 DESCRIPTION"}, Quantity: 1},
 				{Product: entities.Product{Id: 3, Name: "Laptop 1", Price: 50000, Quantity: 11, Description: "https://m.media-amazon.com/images/I/718ETwvLVOL._SL1500_.jpg", Image: "LAPTOP1 DESCRIPTION"}, Quantity: 1}}},
-		// {1, 0, 0},
-		// {2, -2, -2},
-		// {0, -1, -1},
-		// {-1, 0, -1},
 	}
 
 	for _, tt := range tests {
