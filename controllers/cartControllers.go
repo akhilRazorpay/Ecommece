@@ -4,6 +4,7 @@ import (
 	"ecommece/entities"
 	"ecommece/models"
 	"encoding/json"
+	"fmt"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -20,7 +21,7 @@ func CartIndex(response http.ResponseWriter, request *http.Request) {
 	json.Unmarshal([]byte(strCart), &cart)
 	data := map[string]interface{}{
 		"cart":  cart,
-		"total": total(cart),
+		"total": Total(cart),
 	}
 
 	tmp, _ := template.New("cart.html").Funcs(template.FuncMap{"total": func(item entities.Item) float64 {
@@ -56,7 +57,7 @@ func Buy(response http.ResponseWriter, request *http.Request) {
 		var cart []entities.Item
 		json.Unmarshal([]byte(strCart), &cart)
 		// fmt.Println(cart)
-		index := exists(id, cart)
+		index := Exists(id, cart)
 		if index == -1 {
 			cart = append(cart, entities.Item{
 				Product:  product,
@@ -83,8 +84,8 @@ func Remove(response http.ResponseWriter, request *http.Request) {
 	var cart []entities.Item
 	json.Unmarshal([]byte(strCart), &cart)
 
-	index := exists(id, cart)
-	cart = remove(cart, index)
+	index := Exists(id, cart)
+	cart = RemoveCart(cart, index)
 
 	bytesCart, _ := json.Marshal(cart)
 
@@ -94,7 +95,7 @@ func Remove(response http.ResponseWriter, request *http.Request) {
 	http.Redirect(response, request, "/cart", http.StatusSeeOther)
 }
 
-func exists(id int64, cart []entities.Item) int {
+func Exists(id int64, cart []entities.Item) int {
 	// fmt.Println(cart, id)
 	for i := 0; i < len(cart); i++ {
 		if cart[i].Product.Id == id {
@@ -105,9 +106,9 @@ func exists(id int64, cart []entities.Item) int {
 	return -1
 }
 
-func total(cart []entities.Item) float64 {
+func Total(cart []entities.Item) float64 {
 	// fmt.Println("ok")
-	// fmt.Println(cart)
+	fmt.Println(cart)
 
 	var s float64 = 0
 	for _, item := range cart {
@@ -118,7 +119,7 @@ func total(cart []entities.Item) float64 {
 	return s
 }
 
-func remove(cart []entities.Item, index int) []entities.Item {
+func RemoveCart(cart []entities.Item, index int) []entities.Item {
 	// fmt.Println(cart)
 
 	cart = append(cart[:index], cart[index+1:]...)
