@@ -117,3 +117,16 @@ func TestRemove(t *testing.T) {
 		})
 	}
 }
+
+// func Router() *mux.Router {
+// 	router := mux.NewRouter()
+// 	router.HandleFunc("/", CartIndex).Methods("GET")
+// 	return router
+// }
+// func TestCartIndex(t *testing.T) {
+// 	request, _ := http.NewRequest("GET", "/", nil)
+// 	response := httptest.NewRecorder()
+// 	Router().ServeHTTP(response, request)
+// 	assert.Equal(t, 200, response.Code, "ok done")
+
+// }

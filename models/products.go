@@ -3,7 +3,6 @@ package models
 import (
 	"ecommece/database"
 	"ecommece/entities"
-	"fmt"
 )
 
 type ProductModel struct {
@@ -54,7 +53,7 @@ func (*ProductModel) Find(id int64) (entities.Product, error) {
 				rows.Scan(&product.Id, &product.Name, &product.Price, &product.Quantity, &product.Description, &product.Image)
 
 			}
-			fmt.Println(product)
+			// fmt.Println(product)
 			return product, nil
 		}
 	}

@@ -4,7 +4,6 @@ import (
 	"ecommece/entities"
 	"ecommece/models"
 	"encoding/json"
-	"fmt"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -108,7 +107,7 @@ func Exists(id int64, cart []entities.Item) int {
 
 func Total(cart []entities.Item) float64 {
 	// fmt.Println("ok")
-	fmt.Println(cart)
+	// fmt.Println(cart)
 
 	var s float64 = 0
 	for _, item := range cart {
