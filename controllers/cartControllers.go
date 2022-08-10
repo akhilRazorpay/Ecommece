@@ -107,6 +107,8 @@ func exists(id int64, cart []entities.Item) int {
 
 func total(cart []entities.Item) float64 {
 	// fmt.Println("ok")
+	// fmt.Println(cart)
+
 	var s float64 = 0
 	for _, item := range cart {
 
@@ -117,6 +119,7 @@ func total(cart []entities.Item) float64 {
 }
 
 func remove(cart []entities.Item, index int) []entities.Item {
+	// fmt.Println(cart)
 
 	cart = append(cart[:index], cart[index+1:]...)
 	return cart
